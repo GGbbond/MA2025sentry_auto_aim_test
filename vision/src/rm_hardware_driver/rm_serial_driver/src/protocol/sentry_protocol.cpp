@@ -125,7 +125,7 @@ bool ProtocolSentry::receive(rm_interfaces::msg::SerialReceiveData &data) {
     packet.unloadData(data.judge_system_data.game_status, 14);
     packet.unloadData(data.judge_system_data.ammo, 15);
     packet.unloadData(data.judge_system_data.hp, 17);
-    packet.unloadData(data.buiiet_speed, 21);
+    packet.unloadData(data.bullet_speed, 19);
 
     
     // packet.unloadData(data.pitch, 2);

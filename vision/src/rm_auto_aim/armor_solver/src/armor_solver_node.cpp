@@ -27,6 +27,7 @@
 #include "rm_utils/heartbeat.hpp"
 
 namespace fyt::auto_aim {
+double bullet_speed_ = 20.0;
 ArmorSolverNode::ArmorSolverNode(const rclcpp::NodeOptions &options)
 : Node("armor_solver", options), solver_(nullptr) {
   // Register logger
@@ -35,7 +36,7 @@ ArmorSolverNode::ArmorSolverNode(const rclcpp::NodeOptions &options)
 
   debug_mode_ = this->declare_parameter("debug", true);
 
-  //update bullet_speed
+  // update bullet_speed
   serial_sub = this->create_subscription<rm_interfaces::msg::SerialReceiveData>("serial/receive", rclcpp::SensorDataQoS(), std::bind(&ArmorSolverNode::get_bullet_velocity, this, std::placeholders::_1));
 
   // Tracker
